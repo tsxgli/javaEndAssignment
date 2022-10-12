@@ -1,6 +1,7 @@
 package nl.inholland.endassignment;
 
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
@@ -20,5 +21,22 @@ public class MainViewController {
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
+    }
+    @FXML
+    private void onBtnAddMemberClick(ActionEvent event) throws IOException {
+
+        root = FXMLLoader.load(getClass().getResource("add-user-view.fxml"));
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+    @FXML
+    private void onBtnDeleteMemberClick(ActionEvent event) throws IOException{
+
+    }
+    @FXML
+    private void onBtnEditMemberClick(ActionEvent event){
+
     }
 }

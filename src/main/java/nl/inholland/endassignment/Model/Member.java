@@ -1,18 +1,20 @@
 package nl.inholland.endassignment.Model;
 
+import java.time.LocalDate;
 import java.util.concurrent.atomic.AtomicInteger;
 
-public class User {
+public class Member {
     private static final AtomicInteger count = new AtomicInteger(0);
     final int id;
    public String username;
     public String password;
+   public LocalDate birthdate;
 
-    public User(String username, String password) {
+    public Member(String username, String password,LocalDate birthdate) {
         this.username = username;
         this.password = password;
+        this.birthdate = birthdate;
         id=count.incrementAndGet();
-
     }
 
     public int getId() {
@@ -35,7 +37,7 @@ public class User {
         this.password = password;
     }
 
-    public User(){
+    public Member(){
         id=count.incrementAndGet();
     }
 }

@@ -11,7 +11,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-import nl.inholland.endassignment.Model.User;
+import nl.inholland.endassignment.Model.Member;
 import nl.inholland.endassignment.Model.Database;
 
 import java.io.IOException;
@@ -39,12 +39,12 @@ public class HelloController {
     @FXML
     protected void onLoginButtonClick(ActionEvent event) throws IOException {
         Database db = new Database();
-        List<User> users = db.users;
-        User user1 = new User();
+        List<Member> members = db.getMembers();
+        Member user1 = new Member();
         user1.username = txtUsername.getText();
         user1.password = txtPassword.getText();
 
-        if (validateLogin(users, user1.getUsername(), user1.getPassword())) {
+        if (validateLogin(members, user1.getUsername(), user1.getPassword())) {
             testLabel.setText("Welcome " + user1.getUsername() + "!");
             Stage loginStage = (Stage) btn_Login.getScene().getWindow();
             loginStage.close();
@@ -54,9 +54,9 @@ public class HelloController {
         }
     }
 
-    protected boolean validateLogin(List<User> users, String username, String password) {
-        for (User user : users) {
-            if ((user.getUsername().equals(username.trim())) && (user.getPassword().equals(password.trim()))) {
+    protected boolean validateLogin(List<Member> members, String username, String password) {
+        for (Member m : members) {
+            if ((m.getUsername().equals(username.trim())) && (m.getPassword().equals(password.trim()))) {
                 return true;
             }
         }
@@ -71,5 +71,6 @@ public class HelloController {
         stage.setScene(scene);
         stage.show();
     }
+
 }
 

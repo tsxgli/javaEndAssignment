@@ -1,16 +1,12 @@
 package nl.inholland.endassignment;
 
 import javafx.application.Application;
-import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import nl.inholland.endassignment.Model.Database;
-import nl.inholland.endassignment.Model.User;
 
 
 import java.io.IOException;
-import java.util.List;
 
 public class  HelloApplication extends Application {
     @Override
